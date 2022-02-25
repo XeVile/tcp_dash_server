@@ -1,0 +1,25 @@
+{% extends "blog_app/base.html" %}
+{% block content %}
+    <div class="content-section" style="background: #ffffff;padding: 10px 20px;border: 1px solid #dddddd;border-radius: 3px;margin-bottom: 20px;">
+    <div class="media">
+      <img class="rounded-circle account-img" style="height: 125px;width: 125px;margin-right: 20px;margin-bottom: 16px;" src="{{ user.profile.image.url }}">
+      <div class="media-body">
+        <h2 class="account-heading" style="font-size: 2.5rem;">{{ user.username }}</h2>
+        <p class="text-secondary">{{ user.email }}</p>
+        <p class="text-secondary">ID: {{ user.id }}</p>
+      </div>
+    </div>
+    <!-- FORM HERE -->
+    <h2>Posts</h2>
+    {% for post in posts %}
+        <article class="media content-section" style="background: #ffffff;padding: 10px 20px;border: 1px solid #dddddd;border-radius: 3px;margin-bottom: 20px;">
+          <div class="media-body">
+            <div class="article-metadata">
+            <p><h4><a class="article-title" style="color: #444444;" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h4>
+              <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small></p>
+            </div>
+          </div>
+        </article>
+    {% endfor %}
+  </div>
+{% endblock content %}
