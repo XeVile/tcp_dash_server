@@ -22,6 +22,6 @@ Finally to connect to the server:
 
 
 ### Issues:
-* The Django database updates only after a restart
-	> Probably something to do it being statically linked rather than dynamically
+* The Django Dashboard view updates only after a restart
+	> Probably something to do with the database (protected.db) being statically linked rather than dynamically
 * The Client communication archive is inaccessible -> Feature not implemented yet
